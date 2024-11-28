@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<properties resource="properties/database.properties" />
+
+	<typeAliases>
+		<typeAlias type="kr.co.sist.siteinfo.SiteInfoDomain"
+			alias="siteDomain" />
+		<typeAlias type="kr.co.sist.user.emp.MvcEmpDomain"
+			alias="mvcEmpDomain" />
+		<typeAlias type="kr.co.sist.user.emp.MvcEmpVO"
+			alias="mvcEmpVO" />
+
+	</typeAliases>
+
+
+	<environments default="development">
+		<environment id="development">
+			<transactionManager type="JDBC" />
+			<dataSource type="POOLED">
+				<property name="driver" value="${driver}" />
+				<property name="url" value="${connectionURL}" />
+				<property name="username" value="${username}" />
+				<property name="password" value="${password}" />
+			</dataSource>
+		</environment>
+	</environments>
+	<mappers>
+
+		<!-- 사이트 운영 정보 -->
+		<mapper resource="kr/co/sist/siteinfo/siteMapper.xml" />
+
+		<!-- 사용자에서 사원관리 -->
+		<mapper resource="kr/co/sist/user/emp/empMapper.xml" />
+
+	</mappers>
+</configuration>
